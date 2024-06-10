@@ -1,11 +1,3 @@
-using CairoMakie
-
-u, v, w = model.velocities
-ζ = Field(∂x(v) - ∂y(u))
-compute!(ζ)
-
-heatmap(interior(ζ, :, :, 1))
-
 using Oceananigans
 
 grid = RectilinearGrid(size=(128, 128), x=(0, 2π), y=(0, 2π), topology=(Periodic, Periodic, Flat))
@@ -22,3 +14,4 @@ run!(simulation)
 
 compute!(ζ)
 heatmap(interior(ζ, :, :, 1))
+
